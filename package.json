@@ -1,0 +1,32 @@
+{
+  "private": "true",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-runtime": "^6.25.0",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "gulp": "^3.9.1",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.18.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
+  },
+  "scripts": {
+    "build": "webpack && gulp",
+    "start": "webpack-dev-server"
+  },
+  "name": "rmrbYY",
+  "description": "人民日报运营平台前端",
+  "version": "1.0.0",
+  "main": "./js/app.js",
+  "author": "awcloud",
+  "license": "ISC"
+}

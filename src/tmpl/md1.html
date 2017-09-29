@@ -1,0 +1,123 @@
+<div class="page-inner">
+    <div class="table-action">
+        <button class="btn btn-primary" ng-click="create()"><i class="icon-aw-add-to2"></i>新建</button>
+        <button ng-click="edit(checkedEdit)" ng-disabled="!canEdit" class="btn btn-info"><i class="icon-aw-modify"></i>编辑</button>
+        <button type="button" ng-click="delete(checkedItems)" ng-disabled="!canDel" class="btn btn-warning" title="{{notDelTip}}"> <i class="icon-aw-delete"></i>删除</button>
+    </div>
+    <div class="table-content">
+        <table ng-table="tableParams" class="table" show-filter="false">
+            <colgroup>
+                <col width="10%">
+                <col width="45%">
+                <col width="45%">
+            </colgroup>
+            <tr ng-repeat="item in $data">
+                <td header="'headerCheckbox.html'">
+                    <label class="checkbox">
+                        <input type="checkbox" name="r" ng-model="checkboxes.items[item.id]" value="{{item.id}}" />
+                        <i class="iconfont"></i>
+                    </label>
+                </td>
+                <td data-title="'name'" sortable="'name'">
+                    <div class="edit-name edit-lg">
+                        <span title="{{item.name}}">{{item.name}}</span>
+                    </div>
+                </td>
+                <td data-title="'detail'" sortable="'detail'">
+                    <span class="des">{{item.detail}}</span>
+                </td>
+                <td data-title="'select'" sortable="'select'">
+                    {{item.select}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script type="text/ng-template" id="headerCheckbox.html">
+    <label class="checkbox">
+        <input type="checkbox" ng-model="checkboxes.checked" class="select-all" value="" />
+        <i class="iconfont"></i>
+    </label>
+</script>
+<script type="text/ng-template" id="edit.html">
+    <div class="modal-common">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="$dismiss()">×</button>
+            <h3 class="modal-title">编辑</h3>
+        </div>
+        <div class="modal-body">
+            <form name="createDepForm" novalidate>
+                <div class="control-group">
+                    <label class="control-label ">名称:</label>
+                    <div class="controls" >
+                        <input type="text" name="name" class="form-controls" input-format ng-model="dat.name" required />
+                        <form-validate class="error" ng-messages="createDepForm.name.$error"></form-validate>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">detail:</label>
+                    <div class="controls">
+                        <textarea class="form-controls" name="descName" ng-model="dat.detail"></textarea>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">类型:</label>
+                    <div class="controls">
+                        <ui-select ng-model="dat.select" name="select" required>
+                            <ui-select-match placeholder="select选择">{{$select.selected}}</ui-select-match>
+                            <ui-select-choices repeat="item in selectList | filter:$select.search">
+                                <div ng-bind-html="item | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <form-validate class="error" ng-messages="createDepForm.select.$error" ng-if="formInvalid(createDepForm.select)"></form-validate>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="sure" type="button" ng-click="sure(createDepForm)">确定</button>
+            <button class="btn btn-default" id="cancel" type="button" ng-click="$dismiss()">取消</button>
+        </div>
+    </div>
+</script> 
+<script type="text/ng-template" id="create.html">
+    <div class="modal-common">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="$dismiss()">×</button>
+            <h3 class="modal-title">新建</h3>
+        </div>
+        <div class="modal-body">
+            <form name="createDepForm" novalidate>
+                <div class="control-group">
+                    <label class="control-label ">name:</label>
+                    <div class="controls" >
+                        <input type="text" name="name" class="form-controls" input-format ng-model="data.name" required />
+                        <form-validate class="error" ng-messages="createDepForm.name.$error" ng-if="formInvalid(createDepForm.name)"></form-validate>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">类型:</label>
+                    <div class="controls">
+                        <ui-select ng-model="data.select" name="select" required>
+                            <ui-select-match placeholder="select选择">{{$select.selected}}</ui-select-match>
+                            <ui-select-choices repeat=" item in selectList | filter:$select.search">
+                                <div ng-bind-html="item | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <form-validate class="error" ng-messages="createDepForm.select.$error" ng-if="formInvalid(createDepForm.select)"></form-validate>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">detail:</label>
+                    <div class="controls">
+                        <textarea class="form-controls" name="descName" ng-model="data.detail"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="sure" type="button" ng-click="sure(createDepForm,data)">确定</button>
+            <button class="btn btn-default" id="cancel" type="button" ng-click="$dismiss()">取消</button>
+        </div>
+    </div>
+</script>

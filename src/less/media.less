@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+@media screen and (max-width: 1680px) {
+    .panels .pie-wrap.nova-pie {
+        width:45%;
+    }
+    .panels .pie-legend.category {
+        width:55%;
+    }
+    .panels .pie-legend.category .dl-horizontal dd b {
+        display: none;
+    }
+    .panels .pie-legend.category .dl-horizontal dd > span {
+        min-width:25px;
+    }
+    .main-content .box .title .tips {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .page-inner {
+        min-height: 650px;
+    }
+    .panels .pie-legend .dl-horizontal dd {
+        font-size: @panelFontSize * 1.25;
+    }
+    /**
+     * 系统概况-日志信息
+     */ 
+    .logsInfo-wrap .cont .table tr td:nth-child(2) > span {
+        max-width: 90px;
+    }
+
+    /**
+     * 资源管理-部门配额/项目资源
+     */
+    .quotaInfo, .resourcesInfo {
+        padding: 0 10px;
+    }
+    .quotaInfo ul li .total .quota-total {
+        font-size: @headFontSize;
+        padding-top: 5px;
+        min-height: 30px;
+    }
+    .main-content {
+        .layout-grid {
+            .col-3, .col-4 {
+                width: 50%;
+
+                &:nth-child(2n) {
+                    .inner {
+                        border-right:0 none;
+                    }
+                }
+            }
+        }
+    }
+    .main-content .layout-grid .col-4:nth-child(3n) .inner {
+        border-right: solid 1px @blueLight;
+    }
+    .monitor-view .disk > .control-items3 .control-group {
+        
+    }
+    .monitor-view .controls {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 1366px) {
+    .page-inner {
+        min-height: 500px;
+    }
+    .main .main-content .menu-manage .dropdown-ul a {
+        padding: 0 25px;
+    }
+    .main .main-content .menu-manage .nav > ul > li {
+        padding: 0 5px;
+    }
+    .logsInfo-wrap .cont .table tr td:nth-child(2) > span {
+        max-width: 70px;
+    }
+    .panels .pie-legend.category .dl-horizontal dd b {
+        display: none;
+    }
+    .panels .pie-legend .dl-horizontal dt {
+        width: 90px;
+    }
+    .panels .pie-legend .dl-horizontal dd {
+        font-size: @panelFontSize;
+    }
+    .monitor-view .controls {
+        font-size: 12px;
+    }
+    .alarmInfo-wrap .cont .table tr td,
+    .workOrder-wrap .cont .table tr td,
+    .logsInfo-wrap .cont .table tr td {
+        padding: 10px 5px;
+    }
+    .table tbody tr td .btn {
+        min-width: 54px;
+    }
+    .panels{
+        .pie-wrap{
+            width:130px;
+            padding-top:15px;
+            margin-left:15px;
+            .pie{
+                width:130px;
+                height:130px;
+            }
+        }
+        .pie-legend{
+            .dl-horizontal{
+                dd{
+
+                }
+                dt{
+
+                }
+            }
+        }
+    }
+    .res-vm-view{
+        .panels{
+            .pie-wrap{
+                width:50%;
+                padding-top:0;
+                margin-left:0;
+                .pie{
+                    width:160px;
+                    height:160px;
+                }
+            }
+            .pie-legend{
+                .dl-horizontal{
+                    dd{
+
+                    }
+                    dt{
+
+                    }
+                }
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 1280px) {
+}

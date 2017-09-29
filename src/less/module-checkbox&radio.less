@@ -1,0 +1,164 @@
+@charset "utf-8";
+
+/** checkbox && radio **/
+.checkbox, .radio {
+    display: block;
+    margin: 0;
+    position: relative;
+    height: 20px;
+    label {
+        display: inline-block;
+        cursor: pointer;
+        font-weight: normal;
+        margin-bottom: 0;
+        min-height: 20px;
+        line-height: 20px;
+        padding-left: 0px;
+        margin-right: 0px;
+        i, .iconfont {
+            font-size: @panelFontSize;
+            font-family: "fontello";
+            width: 20px;
+            height: 20px;
+            font-style: normal;
+        }
+        .text {
+            color: @lightgrey;
+            display: block;
+            padding-left: 24px;
+            font-size: @moreFontSize - 2;
+        }
+        input:not([type="text"]) {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            &:checked ~ .text {
+                color: @color;
+            }
+        }
+        input[type="checkbox"] {
+            & + i, & + .iconfont {
+                margin-right: 2px;
+                float: left;
+                &:before {
+                    content: '\e843';
+                    color: @checkbox;
+                }
+            }
+            &:checked  + i:before {
+                content: "\e80f";
+                color: @checkbox-checked;
+            }
+            &[disabled] + i{
+                cursor: not-allowed;
+                &:before {
+                    color: @radioCheckboxDisabled;
+                }
+            }
+        }
+        input[type="radio"] {
+            & + i, & + .iconfont {
+                margin-right: 2px;
+                display: inline-block;
+                &:before {
+                    content: "\e810";
+                    color: @radio;
+                }
+            }
+            &:checked  + i:before {
+                content: "\e84d";
+                color: @radio-checked;
+            }
+            &[disabled] + i{
+                cursor: not-allowed;
+                &:before {
+                    color: @radioCheckboxDisabled;
+                }
+            }
+        }
+        & + label {
+            margin-left: 10px;
+        }
+        &.disabled {
+            cursor: not-allowed;
+            color: @lightgrey;
+            input[type="checkbox"], input[type="radio"] {
+                & + i, & + .iconfont {
+                    &:before {
+                        color: @radioCheckboxDisabled;
+                    }
+                }
+            }
+        }
+    }
+    &.switch-btn{
+        display: inline-block;
+        height: @btnHeight;
+        padding-top: 3px;
+        label{
+            i, .iconfont{
+                width: 60px;
+                height: 28px;
+                background: @ivory;
+                position: relative;
+                display: inline-block;
+                border-radius: 50px;
+                -webkit-transition: 0.4s;
+                -moz-transition: 0.4s;
+                -ms-transition: 0.4s;
+                transition: 0.4s;
+            }
+            input{
+                & + i, & + .iconfont{
+                    margin-right: 0;
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        width: 22px;
+                        height: 22px;
+                        text-align: center;
+                        border-radius: 100%;
+                        left: 3px;
+                        top: 3px;
+                        z-index: 2;
+                        background: @white;
+                        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+                        -webkit-transition: 0.4s;
+                        -moz-transition: 0.4s;
+                        -ms-transition: 0.4s;
+                        transition: 0.4s;
+                    }
+                    &:hover{
+                        &:before{
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                        }
+                    }
+                }
+                &:checked + .iconfont {
+                    background: @green;
+                    &:before{
+                        content: '';
+                        left: 34px;
+                        background: @white;
+                    }
+                }
+            }
+        }
+    }
+    &.vertical {
+        height: auto;
+        display: inline-block;
+        label {
+            margin-bottom: 10px;
+            display: block;
+            & + label {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+        }
+    }
+}

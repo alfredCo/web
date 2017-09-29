@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <title>Web脚手架</title>
+  
+  <script src="js/config.js" id="page-config" data-js="
+    lodash/lodash.min.js
+    jquery/jquery.min.js
+    moment/min/moment.min.js
+    d3/d3.min.js
+    bootstrap/dist/js/bootstrap.min.js
+    bootstrap-datetime-picker/js/bootstrap-datetimepicker.js
+    bootstrap-datetime-picker/js/bootstrap-datetimepicker.zh-CN.js
+    angular/angular.min.js
+    angular-animate/angular-animate.min.js
+    angular-route/angular-route.min.js
+    angular-resource/angular-resource.min.js
+    angular-sanitize/angular-sanitize.min.js
+    angular-messages/angular-messages.min.js
+    angular-translate/dist/angular-translate.min.js
+    angular-ui-bootstrap/dist/ui-bootstrap-tpls.js
+    angular-ui-tree/dist/angular-ui-tree.min.js
+    ng-table/dist/ng-table.min.js
+    ui-select/dist/select.min.js
+    ng-csv/ng-csv.min.js
+    " data-css="
+    bootstrap/dist/css/bootstrap.min.css
+    bootstrap-datetime-picker/css/bootstrap-datetimepicker.min.css
+    angular/angular-csp.css
+    ui-select/dist/select.min.css
+    "></script>
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+<body ng-controller="mainCtrl" class="logined">
+<header>
+  <div ng-include="'tmpl/header.html'"></div>
+</header>
+<div class="main open">
+  <aside>
+    <ul>
+      <li ng-repeat="item in items">
+        <a ng-href="{{item.url}}">{{item.name}}</a>
+        <ul ng-if="item.child">
+          <li ng-repeat="children in item.child">
+            <a ng-href="{{children.url}}">{{children.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </aside>
+  <div class="main-content">
+    <div ng-view></div>
+  </div>
+  <ui-alert></ui-alert> 
+</div>
+<script type="text/javascript" src="/js/app.js"></script>
+</body>
+</html>
