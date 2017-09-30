@@ -12,6 +12,13 @@ let mdOne = angular.module('mdOne',[
       })
     }
     modInit();
+    self.add = function (a, b) {
+        a = Number(a);
+        b = Number(b);
+        if (a && b && !isNaN(a) && !isNaN(b))
+            return a + b;
+        return -1;
+    }
     self.$watch(function() {
         return self.checkboxes.items;//监控checkbox
     }, function(val) {

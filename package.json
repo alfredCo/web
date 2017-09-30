@@ -1,6 +1,10 @@
 {
   "private": "true",
-  "dependencies": {},
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-mocks": "^1.5.5",
+    "angularjs": "0.0.1"
+  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -8,9 +12,16 @@
     "babel-preset-env": "^1.6.0",
     "babel-runtime": "^6.25.0",
     "css-loader": "^0.28.4",
-    "file-loader": "^0.11.2",
     "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
     "gulp": "^3.9.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-webpack": "^2.0.4",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
     "style-loader": "^0.18.2",
@@ -21,7 +32,8 @@
   },
   "scripts": {
     "build": "webpack && gulp",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "test": "karma start karma.conf.js"
   },
   "name": "rmrbYY",
   "description": "人民日报运营平台前端",
